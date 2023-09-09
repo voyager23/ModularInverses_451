@@ -4,10 +4,10 @@ UNAME := $(shell uname)
 FLAGS = -std=c++20 -g
 
 gxd : gmpxgcd.cxx makefile
-	g++ gmpxgcd.cxx --std=c++20 -I/usr/local/include -L/usr/local/lib -lgmpxx -lgmp -o gxd
+	g++ gmpxgcd.cxx --std=c++20 -I/usr/local/include -L/usr/local/lib -lgmpxx -lgmp -o ./gxd
 
 query : queries.cxx
-	g++ queries.cxx $(FLAGS) -o ./query
+	g++ queries.cxx $(FLAGS) -o ../bin/query
 	
 sqrs : squares.cxx
 	g++ squares.cxx $(FLAGS) -o ./sqrs
