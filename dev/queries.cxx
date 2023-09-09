@@ -31,7 +31,7 @@
 
 using namespace std;
 
-typedef map<uint64_t,vector<uint64_t>> InvMod;
+typedef map<uint64_t,vector<uint64_t> > InvMod;
 
 const uint64_t MaxN = 20000000;
 // Allocate very large variables as globals
@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 	// I(primitive root) == 1
 	
 	InvMod invmod;	
-	for(uint64_t query = 3; query != 101; ++query){
+	for(uint64_t query = 3; query != 201; ++query){
 		uint64_t idx = query - 2;
 		while((idx <= 100000)&&(idx > 0)){
 			if((sqrs[idx] - 1) % query == 0) {	//solution//

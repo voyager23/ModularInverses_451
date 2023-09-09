@@ -1,5 +1,5 @@
 /*
- * asoln.cxx
+ * bsoln.cxx
  * 
  * Copyright 2023 mike <mike@Fedora37>
  * 
@@ -33,18 +33,36 @@
 
 using namespace std;
 
-typedef map<uint64_t,vector<uint64_t>> InvMod;
+// typedef map<uint64_t,vector<uint64_t>> InvMod;
 
 const uint64_t MaxN = 20000000;
 
-// Allocate very large variables as globals
-array<uint64_t,(MaxN+1)> sqrs;
+
 
 // From OEIS A033948 - The sequence consists of 1, 2, 4 and numbers of the 
 // form p^i and 2p^i, where p is an odd prime and i >= 1.
 // 1,2,3,4,5,6,7,8,9,10,11,13,14 etc
 array<uint64_t,(MaxN+1)> primitive_root = {0,1,1,0,1};
 
+typedef array<uint64_t,MaxN+1> SqrArray;
+// Allocate very large variables as globals
+SqrArray sqrs;
+
+//----------------------------------------------------------------------
+//~ uint64_t find_inverse(uint64_t q, SqrArray sqrs);
+//~ uint64_t find_inverse(uint64_t q, SqrArray sqrs){
+	//~ uint64_t query = q;
+	//~ uint64_t idx = query - 2;
+	//~ while((idx < MaxN+1)&&(idx > 0)){		
+		//~ if((sqrs[idx] - 1) % query == 0) {	//solution//
+			//~ return idx;
+		//~ } else {
+			//~ idx -= 1;
+		//~ }
+	//~ }
+	//~ return 0;		
+//~ }
+//----------------------------------------------------------------------
 int main(int argc, char **argv)
 {
 	// Setup primes vector
@@ -69,9 +87,25 @@ int main(int argc, char **argv)
 		} //while...
 	} //for...
 	
-	ulong global = 0;	//global count
-	for(ulong j = 3; j < MaxN+1; ++j) {
-		if(primitive_root[j]==1) global += 1;
+	uint64_t global = 0;	//global count
+	for(uint64_t j = 3; j < MaxN+1; j++) {
+		if(j%100000 == 0) cout<<j<<endl;
+		if(primitive_root[j]==1) {
+			global += 1;
+		} else {
+			// find inverse
+			uint64_t query = j;
+			uint64_t idx = query - 2;
+			while((idx < MaxN+1)&&(idx > 0)){		
+				if((sqrs[idx] - 1) % query == 0) {	//solution//
+					//cout << idx << endl;
+					global += idx;
+					break;
+				} else {
+					idx -= 1;
+				}
+			} // while
+		} // else
 	}
 	
 	cout<<"global count: "<<global<<endl;
