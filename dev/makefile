@@ -3,6 +3,9 @@
 UNAME := $(shell uname)
 FLAGS = -std=c++20 -g
 
+cpt : coprimetree.cxx makefile
+	g++ coprimetree.cxx --std=c++20 -o ./cpt
+
 gxd : gmpxgcd.cxx makefile
 	g++ gmpxgcd.cxx --std=c++20 -I/usr/local/include -L/usr/local/lib -lgmpxx -lgmp -o ./gxd
 
