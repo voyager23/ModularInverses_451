@@ -58,7 +58,10 @@ int main(int argc, char **argv)
 		
 		// set working = wspace
 		working = wspace;
-		
+	for(Node x : oddsave) cout <<"("<< x[0] << "," << x[1] << ")" << "   ";
+	cout << endl;
+		for(Node x : oddsave) cout <<"("<< x[0] << "," << x[1] << ")" << "   ";
+	cout << endl << endl;	
 	} while(--levels);
 	
 	// finally append working to oddsave
@@ -70,8 +73,8 @@ int main(int argc, char **argv)
 	sort(oddsave.begin(), oddsave.end(), cmpNodes);
 	
 	// output contents of oddsave
-	for(Node x : oddsave) cout <<"("<< x[0] << "," << x[1] << ")" << "   ";
-	cout << endl;
+	//~ for(Node x : oddsave) cout <<"("<< x[0] << "," << x[1] << ")" << "   ";
+	//~ cout << endl;
 	
 	return 0;
 }
