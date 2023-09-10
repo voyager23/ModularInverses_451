@@ -1,7 +1,10 @@
 # Makefile for ModularInverses_451
 
 UNAME := $(shell uname)
-FLAGS = -std=c++20 -g
+FLAGS = -std=c++20 -O0 -g
+
+qxgcd : query_xgcd.cxx makefile
+	g++ query_xgcd.cxx $(FLAGS) -o ../bin/qxgcd
 
 cpt : coprimetree.cxx makefile
 	g++ coprimetree.cxx --std=c++20 -o ./cpt
