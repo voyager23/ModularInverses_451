@@ -3,8 +3,16 @@
 UNAME := $(shell uname)
 FLAGS = -std=c++20 -O0 -g
 
+.PHONEY: run db
+
+
 qxgcd : query_xgcd.cxx makefile
 	g++ query_xgcd.cxx $(FLAGS) -o ../bin/qxgcd
+run:
+	../bin/qxgcd
+db:
+	gdb ../bin/qxgcd
+	
 
 cpt : coprimetree.cxx makefile
 	g++ coprimetree.cxx --std=c++20 -o ./cpt

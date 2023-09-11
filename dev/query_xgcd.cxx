@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 	llong a,b,c[3],delta,limit;
 	bool soln = false;
 	
-	for(llong a = 3; a != 101; ++a){
+	for(llong a = 15; a != 17; ++a){
 		soln = false;
 		if((a%2)==0) { // check odd values only
 			b = a - 3;
