@@ -55,9 +55,7 @@ int main(int argc, char **argv)
 {
 	llong a,b,c[3],delta,limit;
 	bool soln = false;
-	
 	llong global = 0;
-	
 	for(llong a = 3; a != 500000; ++a){
 		soln = false;
 		if((a%2)==0) { // check odd values only

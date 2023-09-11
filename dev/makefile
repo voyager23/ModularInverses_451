@@ -7,11 +7,11 @@ FLAGS = -std=c++20 -O0 -g
 
 
 qxgcd : query_xgcd.cxx makefile
-	g++ query_xgcd.cxx $(FLAGS) -o ../bin/qxgcd
+	g++ query_xgcd.cxx -O2 -o ../bin/qxgcd
 run:
 	../bin/qxgcd
 db:
-	gdb ../bin/qxgcd
+	lldb ../bin/qxgcd
 	
 
 cpt : coprimetree.cxx makefile
