@@ -56,7 +56,7 @@ int main(int argc, char **argv)
 	llong a,b,c[3],delta,limit;
 	bool soln = false;
 	llong global = 0;
-	for(llong a = 3; a != 500000; ++a){
+	for(llong a = 3; a != 500; ++a){
 		soln = false;
 		if((a%2)==0) { // check odd values only
 			b = a - 3;
@@ -83,6 +83,7 @@ int main(int argc, char **argv)
 				b += delta;
 			}
 			if(soln) break;
+			b += delta;
 		} // while b...
 		//cout << "I(" << a << ")=" << 1 << endl;
 		global += 1;

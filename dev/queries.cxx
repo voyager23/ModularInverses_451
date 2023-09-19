@@ -53,7 +53,7 @@ int main(int argc, char **argv)
 	// I(primitive root) == 1
 	
 	InvMod invmod;	
-	for(uint64_t query = 3; query != 50; ++query){
+	for(uint64_t query = 3; query != 150; ++query){
 		uint64_t idx = query - 2;
 		while((idx <= 100000)&&(idx > 0)){
 			if((sqrs[idx] - 1) % query == 0) {	//solution//
