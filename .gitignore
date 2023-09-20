@@ -1,0 +1,6 @@
+# top level git ignore
+src/asoln
+src/query
+dev/query
+dev/sqrs
+bin/*
