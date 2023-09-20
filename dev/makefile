@@ -1,7 +1,7 @@
 # Makefile for ModularInverses_451
 
 UNAME := $(shell uname)
-FLAGS = -std=c++20 -O0 -g
+FLAGS = -std=c++20 -O3 -g
 
 .PHONEY: run db
 

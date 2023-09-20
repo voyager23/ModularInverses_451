@@ -18,7 +18,7 @@
  * Foundation, Inc., 51 Franklin Street, Fifth Floor, Boston,
  * MA 02110-1301, USA.
  * 
- * 
+ * 451. 153651073760956
  */
 
 
@@ -50,9 +50,9 @@ int main(int argc, char **argv)
 	long a,b,c[3];
 	long start,end,delta,inverse;
 	long modulus;
-	
+	long global = 0;
 	modulus = 3;
-	while(modulus != 37){
+	while(modulus != 100001){
 		start = modulus - 2;
 		delta = -1;
 		if((modulus % 2) == 0){	// even modulus
@@ -60,17 +60,22 @@ int main(int argc, char **argv)
 			delta -= 1;
 		}
 		end = modulus/2;
-		
+		bool flag = false;
 		for(long i = start; i >= end; --i){
 			xgcd(c,  modulus, i*i);
 			if((c[0]  ==  1)&&(c[2]==1)) {
-				cout << modulus << " " << i << endl;
+				//cout << modulus << " " << i << endl;
+				global += i;
+				flag = true;
 				break; 
 			}
+			
 		}
-	modulus += 1;
+		//if(!flag) cout << modulus << " " << 1 << endl;
+		global += 1;
+		modulus += 1;
 	}
-	
+	cout << "Global: " << global << endl;
 	//return 0;
 	
 }
