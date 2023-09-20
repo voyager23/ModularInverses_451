@@ -1,11 +1,13 @@
 # Makefile for ModularInverses_451
 
 UNAME := $(shell uname)
-FLAGS = -std=c++20 -O0 -g
+FLAGS = -std=c++20 -O3 -g
 
 .PHONEY: run db
 
-
+mygcd : mygcd.cxx
+	g++ mygcd.cxx $(FLAGS) -o ../bin/mygcd
+	
 qxgcd : query_xgcd.cxx makefile
 	g++ query_xgcd.cxx -O2 -o ../bin/qxgcd
 run:
