@@ -27,15 +27,51 @@
 
 using namespace std;
 
+void xgcd(long *result, long a, long b){
+    long aa[2]={1,0}, bb[2]={0,1}, q;
+    while(1) {
+        q = a / b; a = a % b;
+        aa[0] = aa[0] - q*aa[1];  bb[0] = bb[0] - q*bb[1];
+        if (a == 0) {
+            result[0] = b; result[1] = aa[1]; result[2] = bb[1];
+            return;
+        };
+        q = b / a; b = b % a;
+        aa[1] = aa[1] - q*aa[0];  bb[1] = bb[1] - q*bb[0];
+        if (b == 0) {
+            result[0] = a; result[1] = aa[0]; result[2] = bb[0];
+            return;
+        };
+    };
+}
+ 
 int main(int argc, char **argv)
 {
-	for(int m = 29; m != 43; ++m) {
-		for(int n = m/2; n != m-1; ++n){
-			int g = gcd(m,n);
-			cout << m << ","<<n<<","<<g<<endl;
+	long a,b,c[3];
+	long start,end,delta,inverse;
+	long modulus;
+	
+	modulus = 3;
+	while(modulus != 37){
+		start = modulus - 2;
+		delta = -1;
+		if((modulus % 2) == 0){	// even modulus
+			start -= 1;
+			delta -= 1;
 		}
-		cout<<endl;
+		end = modulus/2;
+		
+		for(long i = start; i >= end; --i){
+			xgcd(c,  modulus, i*i);
+			if((c[0]  ==  1)&&(c[2]==1)) {
+				cout << modulus << " " << i << endl;
+				break; 
+			}
+		}
+	modulus += 1;
 	}
-	return 0;
+	
+	//return 0;
+	
 }
 

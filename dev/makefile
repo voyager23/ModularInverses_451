@@ -5,7 +5,9 @@ FLAGS = -std=c++20 -O0 -g
 
 .PHONEY: run db
 
-
+mygcd : mygcd.cxx
+	g++ mygcd.cxx $(FLAGS) -o ../bin/mygcd
+	
 qxgcd : query_xgcd.cxx makefile
 	g++ query_xgcd.cxx -O2 -o ../bin/qxgcd
 run:
